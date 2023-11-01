@@ -2,16 +2,21 @@ import logo from './logo.svg';
 import './App.css';
 import Navbar from './components/Navbar';
 import Card from './components/Card';
+import Home from "./components/Home";
+import Contact from "./components/Contact";
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 
 function App() {
-  return (
+  return ( 
     <div className="App">
-        <Navbar/>
-        <h1>CS 230L</h1>
-        <h2>Section -- 02</h2>
-        <p>WVU ID: 800381566</p>
-        <p>Hi I am Camden</p>
-        <Card/>
+      <BrowserRouter>
+        <Navbar header={"CS-230L"}/>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/card" element={<Card />}></Route>
+          <Route path="/contact" element={<Contact />}></Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
